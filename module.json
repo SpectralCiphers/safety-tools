@@ -1,0 +1,29 @@
+{
+	"name": "{{name}}",
+	"title": "{{title}}",
+	"description": "{{description}}",
+	"version": "{{version}}",
+	"authors": [
+		{
+			"name": "Maggie"
+		},
+		{
+			"name": "Daniel"
+		}
+	],
+	"minimumCoreVersion": "0.8.5",
+	"compatibleCoreVersion": "0.8.5",
+	"esmodules": "{{sources}}",
+	"socket": true,
+	"styles": "{{css}}",
+	"languages": [
+		{ "lang": "en", "name": "English", "path": "lang/en.json" },
+		{ "lang": "es", "name": "Español", "path": "lang/es.json" }
+	],
+	"url":		"https://domain.com/my/project/{{name}}",
+	"license":	"https://domain.com/my/project/{{name}}/LICENSE",
+	"manifest":	"https://domain.com/my/project/{{name}}/bundle/module.json",
+	"download":	"https://domain.com/my/project/{{name}}/bundle/{{name}}.zip",
+	"readme":	"https://domain.com/my/project/{{name}}/README.md",
+	"changelog":"https://domain.com/my/project/{{name}}/CHANGELOG.md"
+}
