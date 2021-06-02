@@ -1,29 +1,37 @@
 {
-	"name": "{{name}}",
-	"title": "{{title}}",
-	"description": "{{description}}",
-	"version": "{{version}}",
-	"authors": [
-		{
-			"name": "Maggie Cerrino"
-		},
-		{
-			"name": "Daniel Solano Gómez"
-		}
-	],
-	"minimumCoreVersion": "0.8.5",
-	"compatibleCoreVersion": "0.8.5",
-	"esmodules": "{{sources}}",
-	"socket": true,
-	"styles": "{{css}}",
-	"languages": [
-		{ "lang": "en", "name": "English", "path": "lang/en.json" },
-		{ "lang": "es", "name": "Español", "path": "lang/es.json" }
-	],
-	"url":		"https://domain.com/my/project/{{name}}",
-	"license":	"https://domain.com/my/project/{{name}}/LICENSE",
-	"manifest":	"https://domain.com/my/project/{{name}}/bundle/module.json",
-	"download":	"https://domain.com/my/project/{{name}}/bundle/{{name}}.zip",
-	"readme":	"https://domain.com/my/project/{{name}}/README.md",
-	"changelog":"https://domain.com/my/project/{{name}}/CHANGELOG.md"
+  "name": "{{name}}",
+  "title": "{{title}}",
+  "description": "{{description}}",
+  "version": "{{version}}",
+  "authors": [
+    {
+      "name": "Maggie Cerrino"
+    },
+    {
+      "name": "Daniel Solano Gómez"
+    }
+  ],
+  "minimumCoreVersion": "0.8.5",
+  "compatibleCoreVersion": "0.8.6",
+  "esmodules": "{{sources}}",
+  "socket": true,
+  "styles": "{{css}}",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "url": "https://github.com/SpectralCiphers/{{name}}",
+  "license": "https://github.com/SpectralCiphers/{{name}}/releases/{{version}}/download/LICENSE",
+  "manifest": "https://github.com/SpectralCiphers/{{name}}/releases/latest/download/module.json",
+  "download": "https://github.com/SpectralCiphers/{{name}}/releases/{{version}}/download/{{name}}.zip",
+  "readme": "https://github.com/SpectralCiphers/{{name}}/releases/{{version}}/download/README.md",
+  "changelog": "https://github.com/SpectralCiphers/{{name}}/releases/latest/download/CHANGELOG.md"
 }
