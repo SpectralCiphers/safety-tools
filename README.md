@@ -6,7 +6,7 @@ This module aims to provide Foundry with the full set of safety tools described 
 
 ## Installation
 
-Use the URL: [https://github.com/SpectralCiphers/safet-tools/releases/latest/download/module.json]()
+Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/download/module.json]()
 
 ## Features
 
