@@ -1,6 +1,6 @@
 # Safety Tools
 
-This module aims to provide Foundry with the full set of safety tools described in [TTRPG Safety Toolkit](ttrpg-safety-toolkit).
+This module aims to provide Foundry with the full set of safety tools described in [TTRPG Safety Toolkit](https://thetrove.is/Resources/TTRPG%20Safety%20Toolkit/TTRPG%20Safety%20Toolkit%20Guide.pdf).
 
 ![Screen shot of the X card using icons](docs/screenshot-icons.png)
 
@@ -18,5 +18,3 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 
 * Add more customisation
 * Add more translations
-
-[ttrpg-safety-toolkit]: https://thetrove.is/Resources/TTRPG%20Safety%20Toolkit/TTRPG%20Safety%20Toolkit%20Guide.pdf
