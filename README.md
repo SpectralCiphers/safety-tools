@@ -4,6 +4,10 @@ This module aims to provide Foundry with the full set of safety tools described 
 
 ![Screen shot of the X card using icons](docs/screenshot-icons.png)
 
+## Installation
+
+Use the URL: [https://github.com/SpectralCiphers/safet-tools/releases/latest/download/module.json]()
+
 ## Features
 
 * You can toggle whether each safety card should be visible
