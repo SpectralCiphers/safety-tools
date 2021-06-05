@@ -1,6 +1,6 @@
 # Safety Tools
 
-This module aims to provide Foundry with the full set of safety tools described in [TTRPG Safety Toolkit](https://thetrove.is/Resources/TTRPG%20Safety%20Toolkit/TTRPG%20Safety%20Toolkit%20Guide.pdf).
+This module aims to provide Foundry with the full set of safety tools described in [TTRPG Safety Toolkit](https://drive.google.com/drive/folders/114jRmhzBpdqkAlhmveis0nmW73qkAZCj).
 
 ![Screen shot of the X card using icons](docs/screenshot-icons.png)
 
