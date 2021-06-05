@@ -11,7 +11,7 @@
       "name": "Daniel Solano Gómez"
     }
   ],
-  "minimumCoreVersion": "0.8.5",
+  "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.8.6",
   "esmodules": "{{sources}}",
   "socket": true,

@@ -80,26 +80,22 @@ class Card implements SceneControlTool {
 
   public readonly onClick = async (): Promise<void> => {
     console.log(`Safety Tools | Handle click on ${this.name}`)
-    this.game.socket.emit(EVENT_KEY, {card: this.name});
+    game.socket.emit(EVENT_KEY, {card: this.name});
     await this.show();
   }
 
-  private readonly game: Game;
-
-  public constructor(game: Game,
-                     ui: { controls?: SceneControls },
+  public constructor(ui: { controls?: SceneControls },
                      name: CardName) {
     const cardName = game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Name`);
     const cardDescription = game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Description`);
 
     this.name = name;
-    this.game = game;
     this.title = cardDescription;
     this.button = true;
     this.window = new CardWindow(cardName, cardDescription);
 
     const settingName = `${this.name}CardType`;
-    this.game.settings.register(MODULE_NAME, settingName, {
+    game.settings.register(MODULE_NAME, settingName, {
       name: `SAFETY_TOOLS.Settings.${settingName}.Name`,
       hint: `SAFETY_TOOLS.Settings.${settingName}.Hint`,
       scope: 'world',
@@ -117,7 +113,7 @@ class Card implements SceneControlTool {
         ui?.controls?.render(true);
       },
     });
-    this.viewOption = this.game.settings.get(MODULE_NAME, settingName) as CardViewOptions;
+    this.viewOption = game.settings.get(MODULE_NAME, settingName) as CardViewOptions;
     this.updateIcon();
   }
 
@@ -141,18 +137,43 @@ class Card implements SceneControlTool {
   };
 }
 
+const legacyCanvasHook = () => {
+  console.log('Safety Tools | Using version 0.7 fallback')
+  const canvasLayers = Object.getOwnPropertyDescriptor(Canvas.prototype.constructor, 'layers');
+  Object.defineProperty(Canvas.prototype.constructor, 'layers', {
+    get: () => {
+      const origLayers = canvasLayers.get.call(this);
+      return {
+        ...origLayers,
+        [MODULE_NAME]: SafetyToolsLayer,
+      };
+    }
+  });
+
+  Hooks.once('canvasInit', (canvas) => {
+    (canvas as any)['SafetyToolLayer'] = canvas.stage.addChild(new SafetyToolsLayer());
+  });
+};
+
 class SafetyTools {
   private cards: Card[];
+  private legacyMode: boolean;
 
   public readonly onSetup = (): void => {
     console.log('Safety Tools | Registering layer');
-    (CONFIG.Canvas as any).layers[MODULE_NAME] = SafetyToolsLayer;
+    // get game version, falling back to the minimum supported version
+    this.legacyMode = game.data.version?.startsWith('0.7') ?? true;
+    if (this.legacyMode) {
+      legacyCanvasHook();
+    } else {
+      (CONFIG.Canvas as any).layers[MODULE_NAME] = SafetyToolsLayer;
+    }
 
     console.log('Safety Tools | Registering event listener');
     game.socket.on(EVENT_KEY, this.showCardEvent);
 
     console.log('Safety Tools | Generating cards');
-    this.cards = Object.values(CardName).map((cardName) => new Card(game, ui, cardName));
+    this.cards = Object.values(CardName).map((cardName) => new Card(ui, cardName));
   };
 
   private readonly showCardEvent = (event: SafetyCardEvent) => {
@@ -170,7 +191,7 @@ class SafetyTools {
       visible: true,
       tools: this.cards,
       icon: 'fas fa-hard-hat',
-      layer: MODULE_NAME,
+      layer: this.legacyMode ? 'SafetyToolsLayer' : MODULE_NAME,
     };
     buttons.push(safetyToolController);
   };
