@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 It uses the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format, and Safety Tools adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [0.2.1] - 2021-06-15
+
+### Changed
+
+* Declare support for Foundry 0.8.7
+
+[0.2.1]: https://github.com/SpectralCiphers/safety-tools/compare/v0.2.0...v0.2.1
+
+
 ## [0.2.0] - 2021-06-04
 
 ### Added

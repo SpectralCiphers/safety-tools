@@ -12,7 +12,7 @@
     }
   ],
   "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.7",
   "esmodules": "{{sources}}",
   "socket": true,
   "styles": "{{css}}",
