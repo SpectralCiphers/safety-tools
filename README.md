@@ -18,3 +18,7 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 
 * Add more customisation
 * Add more translations
+
+## Acknowledgments
+
+* [@Dakayl](https://github.com/Dakayl) for the French translation
