@@ -141,8 +141,7 @@ class Card implements SceneControlTool {
       return;
     }
     console.log(`Safety Tools | Showing ${this.name}`)
-    this.window.render(true, {
-    });
+    this.window.render(true, {});
     this.window.bringToTop();
   };
 
