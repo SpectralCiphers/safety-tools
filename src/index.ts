@@ -77,17 +77,20 @@ class Card implements SceneControlTool {
   public visible: boolean;
   private viewOption: CardViewOptions;
   private readonly window: CardWindow;
+  private readonly game: Game;
 
   public readonly onClick = async (): Promise<void> => {
     console.log(`Safety Tools | Handle click on ${this.name}`)
-    game.socket.emit(EVENT_KEY, {card: this.name});
+    this.game.socket.emit(EVENT_KEY, {card: this.name});
     await this.show();
   }
 
   public constructor(ui: { controls?: SceneControls },
-                     name: CardName) {
-    const cardName = game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Name`);
-    const cardDescription = game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Description`);
+                     name: CardName,
+                     game: Game) {
+    this.game = game;
+    const cardName = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Name`);
+    const cardDescription = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Description`);
 
     this.name = name;
     this.title = cardDescription;
@@ -160,9 +163,14 @@ class SafetyTools {
   private legacyMode: boolean;
 
   public readonly onSetup = (): void => {
-    console.log('Safety Tools | Registering layer');
+    console.log('Safety Tools | Registering layer v2');
+    if (!(game instanceof Game)) {
+      throw new Error('Attempt to use game global before init.');
+    }
+    // needed for lambda when setting up cards
+    const theGame = game;
     // get game version, falling back to the minimum supported version
-    this.legacyMode = game.data.version?.startsWith('0.7') ?? true;
+    this.legacyMode = theGame.data.version?.startsWith('0.7') ?? true;
     if (this.legacyMode) {
       legacyCanvasHook();
     } else {
@@ -170,10 +178,10 @@ class SafetyTools {
     }
 
     console.log('Safety Tools | Registering event listener');
-    game.socket.on(EVENT_KEY, this.showCardEvent);
+    theGame.socket.on(EVENT_KEY, this.showCardEvent);
 
     console.log('Safety Tools | Generating cards');
-    this.cards = Object.values(CardName).map((cardName) => new Card(ui, cardName));
+    this.cards = Object.values(CardName).map((cardName) => new Card(ui, cardName, theGame));
   };
 
   private readonly showCardEvent = (event: SafetyCardEvent) => {
