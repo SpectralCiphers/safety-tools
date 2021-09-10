@@ -14,6 +14,8 @@
 	"SAFETY_TOOLS.Cards.FastForward.Description": "Avancemos rápidamente a través de esto.",
 	"SAFETY_TOOLS.Cards.Rewind.Name": "Rebobinar",
 	"SAFETY_TOOLS.Cards.Rewind.Description": "Rebobinemos y rehagamos esto.",
+	"SAFETY_TOOLS.Settings.GMOnly.Name": "¿Solamente GM?",
+	"SAFETY_TOOLS.Settings.GMOnly.Hint": "Las tarjetas son visibles solamente al GM.",
 	"SAFETY_TOOLS.Settings.XCardType.Name": "Tarjeta X",
 	"SAFETY_TOOLS.Settings.XCardType.Hint": "Esta tarjeta indica que un jugador quiere que el juego se detenga inmediatamente.",
 	"SAFETY_TOOLS.Settings.OCardType.Name": "Tarjeta O",

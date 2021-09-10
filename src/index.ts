@@ -78,6 +78,7 @@ class Card implements SceneControlTool {
   private viewOption: CardViewOptions;
   private readonly window: CardWindow;
   private readonly game: Game;
+  private gmOnly: boolean;
 
   public readonly onClick = async (): Promise<void> => {
     console.log(`Safety Tools | Handle click on ${this.name}`)
@@ -89,6 +90,7 @@ class Card implements SceneControlTool {
                      name: CardName,
                      game: Game) {
     this.game = game;
+    this.gmOnly = (this.game.settings.get(MODULE_NAME, 'GMOnly') as Boolean).valueOf();
     const cardName = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Name`);
     const cardDescription = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Description`);
 
@@ -133,11 +135,23 @@ class Card implements SceneControlTool {
   }
 
   public show = async (): Promise<void> => {
+    // Do not show the card if the GM-only setting is set and the user is not
+    // a GM/Assistant
+    if (this.gmOnly && !this.game.user.isGM) {
+      return;
+    }
     console.log(`Safety Tools | Showing ${this.name}`)
     this.window.render(true, {
     });
     this.window.bringToTop();
   };
+
+  public setGmOnly = (gmOnly: boolean): void => {
+    this.gmOnly = gmOnly;
+    if (this.gmOnly && !this.game.user.isGM) {
+      void this.window.close();
+    }
+  }
 }
 
 const legacyCanvasHook = () => {
@@ -179,6 +193,20 @@ class SafetyTools {
 
     console.log('Safety Tools | Registering event listener');
     theGame.socket.on(EVENT_KEY, this.showCardEvent);
+
+    theGame.settings.register(MODULE_NAME, 'GMOnly', {
+      name: `SAFETY_TOOLS.Settings.GMOnly.Name`,
+      hint: `SAFETY_TOOLS.Settings.GMOnly.Hint`,
+      scope: 'world',
+      config: true,
+      type: Boolean,
+      default: false,
+      onChange: (newValue) => {
+        this.cards.forEach((card) => {
+          card.setGmOnly(newValue.valueOf());
+        });
+      },
+    });
 
     console.log('Safety Tools | Generating cards');
     this.cards = Object.values(CardName).map((cardName) => new Card(ui, cardName, theGame));

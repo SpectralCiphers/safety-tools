@@ -14,6 +14,8 @@
 	"SAFETY_TOOLS.Cards.FastForward.Description": "Let’s fast forward through this.",
 	"SAFETY_TOOLS.Cards.Rewind.Name": "Rewind",
 	"SAFETY_TOOLS.Cards.Rewind.Description": "Let’s go back and redo this.",
+	"SAFETY_TOOLS.Settings.GMOnly.Name": "GM Only?",
+	"SAFETY_TOOLS.Settings.GMOnly.Hint": "Safety cards are only shown to the GM.",
 	"SAFETY_TOOLS.Settings.XCardType.Name": "X Card",
 	"SAFETY_TOOLS.Settings.XCardType.Hint": "This card immediately stops play due to content.",
 	"SAFETY_TOOLS.Settings.OCardType.Name": "O Card",
