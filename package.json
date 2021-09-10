@@ -1,7 +1,7 @@
 {
 	"name": "safety-tools",
 	"title": "Safety Tools",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "Safety Tools for Foundry VTT",
 	"devDir": "/home/dan/.local/share/FoundryVTT/Data/modules/",
 	"main": "src/index.ts",
