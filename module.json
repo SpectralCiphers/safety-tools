@@ -33,10 +33,10 @@
       "path": "lang/fr.json"
     }
   ],
-  "url": "https://github.com/SpectralCiphers/{{name}}",
-  "license": "https://github.com/SpectralCiphers/{{name}}/releases/download/v{{version}}/LICENSE",
-  "manifest": "https://github.com/SpectralCiphers/{{name}}/releases/latest/download/module.json",
-  "download": "https://github.com/SpectralCiphers/{{name}}/releases/download/v{{version}}/{{name}}-{{version}}.zip",
-  "readme": "https://github.com/SpectralCiphers/{{name}}/releases/download/v{{version}}/README.md",
-  "changelog": "https://github.com/SpectralCiphers/{{name}}/releases/latest/download/CHANGELOG.md"
+  "url": "https://github.com/neovatar/{{name}}",
+  "license": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/LICENSE",
+  "manifest": "https://github.com/neovatar/{{name}}/releases/latest/download/module.json",
+  "download": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/{{name}}-{{version}}.zip",
+  "readme": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/README.md",
+  "changelog": "https://github.com/neovatar/{{name}}/releases/latest/download/CHANGELOG.md"
 }
