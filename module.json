@@ -36,7 +36,7 @@
   "url": "https://github.com/neovatar/{{name}}",
   "license": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/LICENSE",
   "manifest": "https://github.com/neovatar/{{name}}/releases/latest/download/module.json",
-  "download": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/{{name}}-{{version}}.zip",
+  "download": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/{{name}}.zip",
   "readme": "https://github.com/neovatar/{{name}}/releases/download/v{{version}}/README.md",
   "changelog": "https://github.com/neovatar/{{name}}/releases/latest/download/CHANGELOG.md"
 }
