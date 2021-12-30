@@ -141,8 +141,7 @@ class Card implements SceneControlTool {
       return;
     }
     console.log(`Safety Tools | Showing ${this.name}`)
-    this.window.render(true, {});
-    this.window.bringToTop();
+    this.window.render(true, {focus: true});
   };
 
   public setGmOnly = (gmOnly: boolean): void => {
@@ -153,27 +152,8 @@ class Card implements SceneControlTool {
   }
 }
 
-const legacyCanvasHook = () => {
-  console.log('Safety Tools | Using version 0.7 fallback')
-  const canvasLayers = Object.getOwnPropertyDescriptor(Canvas.prototype.constructor, 'layers');
-  Object.defineProperty(Canvas.prototype.constructor, 'layers', {
-    get: () => {
-      const origLayers = canvasLayers.get.call(this);
-      return {
-        ...origLayers,
-        [MODULE_NAME]: SafetyToolsLayer,
-      };
-    }
-  });
-
-  Hooks.once('canvasInit', (canvas) => {
-    (canvas as any)['SafetyToolLayer'] = canvas.stage.addChild(new SafetyToolsLayer());
-  });
-};
-
 class SafetyTools {
   private cards: Card[];
-  private legacyMode: boolean;
 
   public readonly onSetup = (): void => {
     console.log('Safety Tools | Registering layer v2');
@@ -182,12 +162,15 @@ class SafetyTools {
     }
     // needed for lambda when setting up cards
     const theGame = game;
-    // get game version, falling back to the minimum supported version
-    this.legacyMode = theGame.data.version?.startsWith('0.7') ?? true;
-    if (this.legacyMode) {
-      legacyCanvasHook();
-    } else {
+    if (theGame.data.version?.startsWith('0.8')) {
+      console.log('Safety Tools | Register as version 0.8 layer');
       (CONFIG.Canvas as any).layers[MODULE_NAME] = SafetyToolsLayer;
+    } else {
+      console.log('Safety Tools | Register as version 9 layer');
+      (CONFIG.Canvas as any).layers[MODULE_NAME] = {
+        "group": "interface",
+        "layerClass": SafetyToolsLayer,
+      }
     }
 
     console.log('Safety Tools | Registering event listener');
@@ -226,7 +209,7 @@ class SafetyTools {
       visible: true,
       tools: this.cards,
       icon: 'fas fa-hard-hat',
-      layer: this.legacyMode ? 'SafetyToolsLayer' : MODULE_NAME,
+      layer: MODULE_NAME,
     };
     buttons.push(safetyToolController);
   };
