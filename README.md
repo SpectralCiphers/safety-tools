@@ -1,12 +1,19 @@
 # Safety Tools
 
+> </br>
+>
+> :warning: **This a fork of the official module found on https://github.com/SpectralCiphers/safety-tools.**
+>
+> This version fixes safety-tools for FoundfryVTT v9. Once the original bugfix is merged, my repo will point back to the original module.
+> </br>
+
 This module aims to provide Foundry with the full set of safety tools described in [TTRPG Safety Toolkit](https://drive.google.com/drive/folders/114jRmhzBpdqkAlhmveis0nmW73qkAZCj).
 
 ![Screen shot of the X card using icons](docs/screenshot-icons.png)
 
 ## Installation
 
-Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/download/module.json](https://github.com/SpectralCiphers/safety-tools/releases/latest/download/module.json)
+Use the URL: [https://github.com/neovatar/safety-tools/releases/latest/download/module.json](https://github.com/neovatar/safety-tools/releases/latest/download/module.json)
 
 ## Features
 
