@@ -22,3 +22,4 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 ## Acknowledgments
 
 * [@Dakayl](https://github.com/Dakayl) for the French translation
+* [@neovatar](https://github.com/neovatar) for the update to Foundry VTT 9
