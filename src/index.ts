@@ -69,7 +69,7 @@ class CardWindow extends Application {
   }
 }
 
-class Card implements SceneControlTool {
+class Card implements SceneControlToolNoToggle {
   public readonly name: CardName;
   public readonly title: string;
   public icon: string;
@@ -197,7 +197,7 @@ class SafetyTools {
   private readonly showCardEvent = (event: SafetyCardEvent) => {
     console.log(`Safety Tools | Received ${event.card}`)
     const target = this.cards.find((card) => card.name === event.card);
-    target?.show();
+    void target?.show();
   }
 
   public readonly onGetSceneControlButtons = (buttons: SceneControl[]): void => {
