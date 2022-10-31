@@ -1,4 +1,4 @@
-export class SafetyToolsLayer extends CanvasLayer {
+export class SafetyToolsLayer extends InteractionLayer {
   public constructor() {
     super();
     console.log('Safety Tools | Loaded into canvas');
