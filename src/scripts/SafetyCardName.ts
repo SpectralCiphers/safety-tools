@@ -1,4 +1,4 @@
-export enum CardName {
+export enum SafetyCardName {
   X = 'X',
   O = 'O',
   N = 'N',
