@@ -1,7 +1,7 @@
-import { CARD_ICON_CLASSES, MODULE_NAME } from "../index";
-import { SafetyCardViewOptions } from "src";
-import type { SafetyCardName } from "src/scripts/SafetyCardName";
+import { CARD_ICON_CLASSES, MODULE_NAME, SafetyCardViewOptions } from "../index";
+import type { SafetyCardName } from "./SafetyCardName";
 import { SafetyCardWindow } from "./SafetyCardWindow";
+import { safetyToolsSocket } from "./socket";
 
 export class SafetyCard implements SceneControlToolNoToggle {
 	public readonly name: SafetyCardName;
@@ -19,7 +19,7 @@ export class SafetyCard implements SceneControlToolNoToggle {
 		//this.game.socket.emit(EVENT_KEY, {card: this.name});
 		//@ts-ignore
 		safetyToolsSocket.executeForEveryone("showCard", this.name);
-		await this.show();
+		// await this.show();
 	};
 
 	public constructor(ui: { controls?: SceneControls }, name: SafetyCardName, game: Game) {

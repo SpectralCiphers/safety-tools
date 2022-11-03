@@ -1,5 +1,5 @@
-import type { ActorData } from "@league-of-foundry-developers/foundry-vtt-types/src/foundry/common/data/data.mjs";
-import type { SafetyCard } from "./SafetyCard";
+import { SafetyCard } from "./SafetyCard";
+import { SafetyCardName } from "./SafetyCardName";
 
 const API = {
 	showCardArr(...inAttributes) {
@@ -7,13 +7,15 @@ const API = {
 			console.error("Safety Tools | showCardArrArr | inAttributes must be of type array");
 		}
 		const [cardName] = inAttributes;
-		this.showCard();
+		this.showCard(cardName);
 	},
 
 	showCard(cardName: string) {
 		console.log(`Safety Tools | Received ${cardName}`);
-		const target = <SafetyCard>this.cards.find((card: SafetyCard) => card.name === cardName);
-		void target?.show();
+		// const target = <SafetyCard>this.cards.find((card: SafetyCard) => card.name === cardName);
+		const cards = Object.values(SafetyCardName).map((cardName) => new SafetyCard(ui, cardName, game));
+		const target = <SafetyCard>cards.find((card: SafetyCard) => card.name === cardName);
+		target?.show();
 	},
 };
 

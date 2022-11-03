@@ -1,9 +1,9 @@
 import { registerSocket, safetyToolsSocket } from "./socket";
 import { MODULE_NAME, SafetyCardEvent, setApi } from "../index";
-import { SafetyCardName } from "src/scripts/SafetyCardName";
 import { SafetyCard } from "./SafetyCard";
 import { SafetyToolsLayer } from "./SafetyToolsLayer";
 import API from "./api";
+import { SafetyCardName } from "./SafetyCardName";
 
 export class SafetyTools {
 	private cards: SafetyCard[];
@@ -39,9 +39,8 @@ export class SafetyTools {
 			layerClass: SafetyToolsLayer,
 		};
 
-		console.log("Safety Tools | Registering event listener");
+		// console.log("Safety Tools | Registering event listener");
 		//   game.socket.on(EVENT_KEY, this.showCardEvent);
-		//   safetyToolsSocket.executeForEveryone("showCard", )
 
 		game.settings.register(MODULE_NAME, "GMOnly", {
 			name: `SAFETY_TOOLS.Settings.GMOnly.Name`,
@@ -58,7 +57,9 @@ export class SafetyTools {
 		});
 
 		console.log("Safety Tools | Generating cards");
-		this.cards = Object.values(SafetyCardName).map((cardName) => new SafetyCard(ui, cardName, game));
+		if (!this.cards) {
+			this.cards = Object.values(SafetyCardName).map((cardName) => new SafetyCard(ui, cardName, game));
+		}
 	};
 
 	// private readonly showCardEvent = (event: SafetyCardEvent) => {
@@ -69,6 +70,11 @@ export class SafetyTools {
 
 	public readonly onGetSceneControlButtons = (buttons: SceneControl[]): void => {
 		console.log("Safety Tools | Adding scene controls");
+
+		if (!this.cards) {
+			this.cards = Object.values(SafetyCardName).map((cardName) => new SafetyCard(ui, cardName, game));
+		}
+
 		const safetyToolController = {
 			name: MODULE_NAME,
 			title: "SAFETY_TOOLS.Control.Title",

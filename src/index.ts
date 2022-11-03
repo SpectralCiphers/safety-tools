@@ -49,11 +49,19 @@ export const CARD_ICON_CLASSES: Record<SafetyCardName, { ShowAsIcon: string; Sho
 
 const safetyTools = new SafetyTools();
 
-Hooks.once("init", safetyTools.onInit);
-Hooks.once("setup", safetyTools.onSetup);
-Hooks.on("ready", safetyTools.onReady);
+Hooks.once("init", () => {
+	safetyTools.onInit();
+});
+Hooks.once("setup", () => {
+	safetyTools.onSetup();
+});
+Hooks.on("ready", () => {
+	safetyTools.onReady();
+});
 
-Hooks.on("getSceneControlButtons", safetyTools.onGetSceneControlButtons);
+Hooks.on("getSceneControlButtons", (buttons) => {
+	safetyTools.onGetSceneControlButtons(buttons);
+});
 
 /* ------------------------------------ */
 /* Other Hooks							*/

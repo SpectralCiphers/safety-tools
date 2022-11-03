@@ -1,4 +1,4 @@
-import { MODULE_NAME } from "src";
+import { MODULE_NAME } from "../index";
 
 export class SafetyCardWindow extends Application {
 	public icon: string;

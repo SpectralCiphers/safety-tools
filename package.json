@@ -2,7 +2,7 @@
   "name": "safety-tools",
   "title": "Safety Tools",
   "description": "Safety Tools for Foundry VTT",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "index.js",
   "scripts": {
     "publish": "gulp publish --update",
