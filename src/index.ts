@@ -1,57 +1,59 @@
-import {SafetyToolsLayer} from "./scripts/SafetyToolsLayer.js";
+import { SafetyToolsLayer } from "./scripts/SafetyToolsLayer.js";
 import { SafetyTools } from "./scripts/SafetyTools.js";
 import type API from "./scripts/api.js";
 import { SafetyCardName } from "./scripts/SafetyCardName.js";
 
-export const MODULE_NAME = 'safety-tools';
-export const EVENT_KEY = `module.${MODULE_NAME}`;
+export const MODULE_NAME = "safety-tools";
+// export const EVENT_KEY = `module.${MODULE_NAME}`;
 
 export interface SafetyCardEvent {
-  readonly card: SafetyCardName;
+	readonly card: SafetyCardName;
 }
 
 export enum SafetyCardViewOptions {
-  Disabled = 'Disabled',
-  ShowAsIcon = 'ShowAsIcon',
-  ShowAsText = 'ShowAsText',
+	Disabled = "Disabled",
+	ShowAsIcon = "ShowAsIcon",
+	ShowAsText = "ShowAsText",
 }
 
-export const CARD_ICON_CLASSES: Record<SafetyCardName, { ShowAsIcon: string, ShowAsText: string }> = {
-  [SafetyCardName.X]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-hand-paper',
-    [SafetyCardViewOptions.ShowAsText]: 'x-card',
-  },
-  [SafetyCardName.O]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-thumbs-up',
-    [SafetyCardViewOptions.ShowAsText]: 'o-card',
-  },
-  [SafetyCardName.N]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-exclamation-triangle',
-    [SafetyCardViewOptions.ShowAsText]: 'n-card',
-  },
-  [SafetyCardName.Pause]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-pause',
-    [SafetyCardViewOptions.ShowAsText]: 'pause-card',
-  },
-  [SafetyCardName.Resume]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-play',
-    [SafetyCardViewOptions.ShowAsText]: 'resume-card',
-  },
-  [SafetyCardName.FastForward]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-forward',
-    [SafetyCardViewOptions.ShowAsText]: 'fast-forward-card',
-  },
-  [SafetyCardName.Rewind]: {
-    [SafetyCardViewOptions.ShowAsIcon]: 'fas fa-backward',
-    [SafetyCardViewOptions.ShowAsText]: 'rewind-card',
-  },
-}
+export const CARD_ICON_CLASSES: Record<SafetyCardName, { ShowAsIcon: string; ShowAsText: string }> = {
+	[SafetyCardName.X]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-hand-paper",
+		[SafetyCardViewOptions.ShowAsText]: "x-card",
+	},
+	[SafetyCardName.O]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-thumbs-up",
+		[SafetyCardViewOptions.ShowAsText]: "o-card",
+	},
+	[SafetyCardName.N]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-exclamation-triangle",
+		[SafetyCardViewOptions.ShowAsText]: "n-card",
+	},
+	[SafetyCardName.Pause]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-pause",
+		[SafetyCardViewOptions.ShowAsText]: "pause-card",
+	},
+	[SafetyCardName.Resume]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-play",
+		[SafetyCardViewOptions.ShowAsText]: "resume-card",
+	},
+	[SafetyCardName.FastForward]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-forward",
+		[SafetyCardViewOptions.ShowAsText]: "fast-forward-card",
+	},
+	[SafetyCardName.Rewind]: {
+		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-backward",
+		[SafetyCardViewOptions.ShowAsText]: "rewind-card",
+	},
+};
 
 const safetyTools = new SafetyTools();
 
-Hooks.once('setup', safetyTools.onSetup);
-Hooks.on('getSceneControlButtons', safetyTools.onGetSceneControlButtons);
-Hooks.on('ready', safetyTools.onReady);
+Hooks.once("init", safetyTools.onInit);
+Hooks.once("setup", safetyTools.onSetup);
+Hooks.on("ready", safetyTools.onReady);
+
+Hooks.on("getSceneControlButtons", safetyTools.onGetSceneControlButtons);
 
 /* ------------------------------------ */
 /* Other Hooks							*/
