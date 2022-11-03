@@ -1,8 +1,8 @@
 {
-  "name": "{{name}}",
-  "title": "{{title}}",
-  "description": "{{description}}",
-  "version": "{{version}}",
+    "id": "safety-tools",
+    "title": "Safety Tools",
+    "description": "Safety Tools for Foundry VTT",
+    "version": "0.5.0",
   "authors": [
     {
       "name": "Max Cerrina"
@@ -20,17 +20,17 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "languages/en.json"
     },
     {
       "lang": "es",
       "name": "Español",
-      "path": "lang/es.json"
+      "path": "languages/es.json"
     },
     {
       "lang": "fr",
       "name": "Français",
-      "path": "lang/fr.json"
+      "path": "languages/fr.json"
     }
   ],
   "url": "https://github.com/SpectralCiphers/{{name}}",
