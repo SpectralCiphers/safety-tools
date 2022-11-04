@@ -14,6 +14,7 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 * You can toggle between icons and text
   ![Screen shot of the X card using text](docs/screenshot-text.png)
 
+
 # License
 
 - Code: [LICENSE](https://github.com/brunocalado/raise-my-hand-plus/blob/main/LICENSE)
