@@ -4,11 +4,14 @@ import { SafetyCard } from "./SafetyCard";
 import { SafetyToolsLayer } from "./SafetyToolsLayer";
 import API from "./api";
 import { SafetyCardName } from "./SafetyCardName";
+import { registerSettings } from "./settings";
 
 export class SafetyTools {
 	private cards: SafetyCard[];
 
 	public readonly onInit = (): void => {
+        registerSettings();
+
 		Hooks.once("socketlib.ready", registerSocket);
 		// TODO not enter on socketlib.ready
 		registerSocket();
@@ -41,20 +44,6 @@ export class SafetyTools {
 
 		// console.log("Safety Tools | Registering event listener");
 		//   game.socket.on(EVENT_KEY, this.showCardEvent);
-
-		game.settings.register(MODULE_NAME, "GMOnly", {
-			name: `SAFETY_TOOLS.Settings.GMOnly.Name`,
-			hint: `SAFETY_TOOLS.Settings.GMOnly.Hint`,
-			scope: "world",
-			config: true,
-			type: Boolean,
-			default: false,
-			onChange: (newValue) => {
-				this.cards.forEach((card: SafetyCard) => {
-					card.setGmOnly(newValue.valueOf());
-				});
-			},
-		});
 
 		console.log("Safety Tools | Generating cards");
 		if (!this.cards) {

@@ -34,24 +34,24 @@ export class SafetyCard implements SceneControlToolNoToggle {
 		this.window = new SafetyCardWindow(cardName, cardDescription);
 
 		const settingName = `${this.name}CardType`;
-		game.settings.register(MODULE_NAME, settingName, {
-			name: `SAFETY_TOOLS.Settings.${settingName}.Name`,
-			hint: `SAFETY_TOOLS.Settings.${settingName}.Hint`,
-			scope: "world",
-			config: true,
-			type: String,
-			choices: {
-				[SafetyCardViewOptions.Disabled]: "SAFETY_TOOLS.SettingsValue.Disabled",
-				[SafetyCardViewOptions.ShowAsText]: "SAFETY_TOOLS.SettingsValue.ShowAsText",
-				[SafetyCardViewOptions.ShowAsIcon]: "SAFETY_TOOLS.SettingsValue.ShowAsIcon",
-			},
-			default: SafetyCardViewOptions.ShowAsIcon,
-			onChange: (newValue: SafetyCardViewOptions): void => {
-				this.viewOption = newValue;
-				this.updateIcon();
-				ui?.controls?.render(true);
-			},
-		});
+		// game.settings.register(MODULE_NAME, settingName, {
+		// 	name: `SAFETY_TOOLS.Settings.${settingName}.Name`,
+		// 	hint: `SAFETY_TOOLS.Settings.${settingName}.Hint`,
+		// 	scope: "world",
+		// 	config: true,
+		// 	type: String,
+		// 	choices: {
+		// 		[SafetyCardViewOptions.Disabled]: "SAFETY_TOOLS.SettingsValue.Disabled",
+		// 		[SafetyCardViewOptions.ShowAsText]: "SAFETY_TOOLS.SettingsValue.ShowAsText",
+		// 		[SafetyCardViewOptions.ShowAsIcon]: "SAFETY_TOOLS.SettingsValue.ShowAsIcon",
+		// 	},
+		// 	default: SafetyCardViewOptions.ShowAsIcon,
+		// 	onChange: (newValue: SafetyCardViewOptions): void => {
+		// 		this.viewOption = newValue;
+		// 		this.updateIcon();
+		// 		ui?.controls?.render(true);
+		// 	},
+		// });
 		this.viewOption = game.settings.get(MODULE_NAME, settingName) as SafetyCardViewOptions;
 		this.updateIcon();
 	}
