@@ -14,10 +14,14 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 * You can toggle between icons and text
   ![Screen shot of the X card using text](docs/screenshot-text.png)
 
-## Future development
+# License
 
-* Add more customisation
-* Add more translations
+- Code: [LICENSE](https://github.com/brunocalado/raise-my-hand-plus/blob/main/LICENSE)
+- This module is a fork from (Raise My Hand): https://github.com/cswendrowski/FoundryVTT-Raise-My-Hand
+- alarm sound: https://creativecommons.org/licenses/by/4.0/
+- hand sound: https://creativecommons.org/licenses/by/4.0/
+- [X-Card by John Stavropoulos](https://docs.google.com/document/d/1SB0jsx34bWHZWbnNIVVuMjhDkrdFGo1_hSC2BWPlI3A/edit)
+- X Card Designer: [Matheus Moreno Mota](https://www.instagram.com/matheus_mesmo/)
 
 ## Acknowledgments
 
