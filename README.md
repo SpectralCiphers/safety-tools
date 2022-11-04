@@ -12,7 +12,8 @@ Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/do
 
 * You can toggle whether each safety card should be visible
 * You can toggle between icons and text
-  ![Screen shot of the X card using text](docs/screenshot-text.png)
+
+![Screen shot of the X card using text](docs/screenshot-text.png)
 
 
 # License
