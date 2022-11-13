@@ -6,7 +6,15 @@ This module aims to provide Foundry with the full set of safety tools described 
 
 ## Installation
 
-Use the URL: [https://github.com/SpectralCiphers/safety-tools/releases/latest/download/module.json](https://github.com/SpectralCiphers/safety-tools/releases/latest/download/module.json)
+It's always easiest to install modules from the in game add-on browser.
+
+To install this module manually:
+1.  Inside the Foundry "Configuration and Setup" screen, click "Add-on Modules"
+2.  Click "Install Module"
+3.  In the "Manifest URL" field, paste the following url:
+`https://raw.githubusercontent.com/p4535992/foundryvtt-scene-transitions/master/src/module.json`
+4.  Click 'Install' and wait for installation to complete
+5.  Don't forget to enable the module in game using the "Manage Module" button
 
 ## Features
 
