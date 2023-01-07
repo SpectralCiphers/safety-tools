@@ -2,8 +2,9 @@ import { SafetyToolsLayer } from "./scripts/SafetyToolsLayer.js";
 import { SafetyTools } from "./scripts/SafetyTools.js";
 import type API from "./scripts/api.js";
 import { SafetyCardName } from "./scripts/SafetyCardName.js";
+import CONSTANTS from "./scripts/constants.js";
 
-export const MODULE_NAME = "safety-tools";
+// export const MODULE_NAME = "safety-tools";
 // export const EVENT_KEY = `module.${MODULE_NAME}`;
 
 export interface SafetyCardEvent {
@@ -68,7 +69,7 @@ Hooks.on("getSceneControlButtons", (buttons) => {
 /* ------------------------------------ */
 
 Hooks.once("devModeReady", ({ registerPackageDebugFlag }) => {
-	registerPackageDebugFlag(MODULE_NAME);
+	registerPackageDebugFlag(CONSTANTS.MODULE_NAME);
 });
 
 export interface SafetyToolsModuleData {
@@ -81,7 +82,7 @@ export interface SafetyToolsModuleData {
  * @param api to set to game module.
  */
 export function setApi(api: typeof API): void {
-	const data = game.modules.get(MODULE_NAME) as unknown as SafetyToolsModuleData;
+	const data = game.modules.get(CONSTANTS.MODULE_NAME) as unknown as SafetyToolsModuleData;
 	data.api = api;
 }
 
@@ -90,7 +91,7 @@ export function setApi(api: typeof API): void {
  * @returns Api from games module.
  */
 export function getApi(): typeof API {
-	const data = game.modules.get(MODULE_NAME) as unknown as SafetyToolsModuleData;
+	const data = game.modules.get(CONSTANTS.MODULE_NAME) as unknown as SafetyToolsModuleData;
 	return data.api;
 }
 
@@ -99,7 +100,7 @@ export function getApi(): typeof API {
  * @param socket to set to game module.
  */
 export function setSocket(socket: any): void {
-	const data = game.modules.get(MODULE_NAME) as unknown as SafetyToolsModuleData;
+	const data = game.modules.get(CONSTANTS.MODULE_NAME) as unknown as SafetyToolsModuleData;
 	data.socket = socket;
 }
 
@@ -108,6 +109,6 @@ export function setSocket(socket: any): void {
  * @returns Socket from games module.
  */
 export function getSocket() {
-	const data = game.modules.get(MODULE_NAME) as unknown as SafetyToolsModuleData;
+	const data = game.modules.get(CONSTANTS.MODULE_NAME) as unknown as SafetyToolsModuleData;
 	return data.socket;
 }

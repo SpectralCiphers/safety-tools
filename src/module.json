@@ -2,7 +2,7 @@
 	"id": "safety-tools",
 	"title": "Safety Tools",
 	"description": "Safety Tools for Foundry VTT",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"authors": [
 		{
 			"name": "Max Cerrina"
@@ -81,8 +81,8 @@
 	"url": "https://github.com/p4535992/foundryvtt-safety-tools",
 	"manifest": "https://github.com/p4535992/foundryvtt-safety-tools/releases/latest/download/module.json",
 	"download": "https://github.com/p4535992/foundryvtt-safety-tools/releases/latest/download/module.zip",
-	"readme": "https://github.com/p4535992/foundryvtt-safety-tools/blob/v0.5.1/README.md",
-	"changelog": "https://github.com/p4535992/foundryvtt-safety-tools/blob/0.5.1/CHANGELOG.md",
+	"readme": "https://github.com/p4535992/foundryvtt-safety-tools/blob/v0.5.2/README.md",
+	"changelog": "https://github.com/p4535992/foundryvtt-safety-tools/blob/0.5.2/CHANGELOG.md",
 	"bugs": "https://github.com/p4535992/foundryvtt-safety-tools/issues",
 	"allowBugReporter": true,
 	"relationships": {

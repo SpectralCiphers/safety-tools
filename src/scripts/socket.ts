@@ -1,6 +1,6 @@
 import API from "./api";
 import { setSocket } from "../index";
-import { MODULE_NAME } from "../index";
+import CONSTANTS from "./constants";
 
 export let safetyToolsSocket;
 
@@ -10,7 +10,7 @@ export function registerSocket() {
 		return safetyToolsSocket;
 	}
 	//@ts-ignore
-	safetyToolsSocket = socketlib.registerModule(MODULE_NAME);
+	safetyToolsSocket = socketlib.registerModule(CONSTANTS.MODULE_NAME);
 
 	safetyToolsSocket.register("showCard", (...args) => API.showCardArr(...args));
 

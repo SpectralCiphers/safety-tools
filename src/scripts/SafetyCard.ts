@@ -1,6 +1,7 @@
-import { CARD_ICON_CLASSES, MODULE_NAME, SafetyCardViewOptions } from "../index";
+import { CARD_ICON_CLASSES, SafetyCardViewOptions } from "../index";
 import type { SafetyCardName } from "./SafetyCardName";
 import { SafetyCardWindow } from "./SafetyCardWindow";
+import CONSTANTS from "./constants";
 import { safetyToolsSocket } from "./socket";
 
 export class SafetyCard implements SceneControlToolNoToggle {
@@ -24,9 +25,9 @@ export class SafetyCard implements SceneControlToolNoToggle {
 
 	public constructor(ui: { controls?: SceneControls }, name: SafetyCardName, game: Game) {
 		this.game = game;
-		this.gmOnly = (this.game.settings.get(MODULE_NAME, "GMOnly") as Boolean).valueOf();
-		const cardName = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Name`);
-		const cardDescription = this.game.i18n.localize(`SAFETY_TOOLS.Cards.${name}.Description`);
+		this.gmOnly = (this.game.settings.get(CONSTANTS.MODULE_NAME, "GMOnly") as Boolean).valueOf();
+		const cardName = this.game.i18n.localize(`${CONSTANTS.MODULE_NAME}.Cards.${name}.Name`);
+		const cardDescription = this.game.i18n.localize(`${CONSTANTS.MODULE_NAME}.Cards.${name}.Description`);
 
 		this.name = name;
 		this.title = cardDescription;
@@ -35,15 +36,15 @@ export class SafetyCard implements SceneControlToolNoToggle {
 
 		const settingName = `${this.name}CardType`;
 		// game.settings.register(MODULE_NAME, settingName, {
-		// 	name: `SAFETY_TOOLS.Settings.${settingName}.Name`,
-		// 	hint: `SAFETY_TOOLS.Settings.${settingName}.Hint`,
+		// 	name: `${CONSTANTS.MODULE_NAME}.Settings.${settingName}.Name`,
+		// 	hint: `${CONSTANTS.MODULE_NAME}.Settings.${settingName}.Hint`,
 		// 	scope: "world",
 		// 	config: true,
 		// 	type: String,
 		// 	choices: {
-		// 		[SafetyCardViewOptions.Disabled]: "SAFETY_TOOLS.SettingsValue.Disabled",
-		// 		[SafetyCardViewOptions.ShowAsText]: "SAFETY_TOOLS.SettingsValue.ShowAsText",
-		// 		[SafetyCardViewOptions.ShowAsIcon]: "SAFETY_TOOLS.SettingsValue.ShowAsIcon",
+		// 		[SafetyCardViewOptions.Disabled]: "${CONSTANTS.MODULE_NAME}.SettingsValue.Disabled",
+		// 		[SafetyCardViewOptions.ShowAsText]: "${CONSTANTS.MODULE_NAME}.SettingsValue.ShowAsText",
+		// 		[SafetyCardViewOptions.ShowAsIcon]: "${CONSTANTS.MODULE_NAME}.SettingsValue.ShowAsIcon",
 		// 	},
 		// 	default: SafetyCardViewOptions.ShowAsIcon,
 		// 	onChange: (newValue: SafetyCardViewOptions): void => {
@@ -52,7 +53,7 @@ export class SafetyCard implements SceneControlToolNoToggle {
 		// 		ui?.controls?.render(true);
 		// 	},
 		// });
-		this.viewOption = game.settings.get(MODULE_NAME, settingName) as SafetyCardViewOptions;
+		this.viewOption = game.settings.get(CONSTANTS.MODULE_NAME, settingName) as SafetyCardViewOptions;
 		this.updateIcon();
 	}
 

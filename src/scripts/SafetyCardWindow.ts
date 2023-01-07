@@ -1,4 +1,4 @@
-import { MODULE_NAME } from "../index";
+import CONSTANTS from "./constants";
 
 export class SafetyCardWindow extends Application {
 	public icon: string;
@@ -7,7 +7,7 @@ export class SafetyCardWindow extends Application {
 	public constructor(title: string, description: string) {
 		super({
 			resizable: false,
-			template: `modules/${MODULE_NAME}/templates/card.hbs`,
+			template: `modules/${CONSTANTS.MODULE_NAME}/templates/card.hbs`,
 			title,
 			height: 647,
 			width: 400,

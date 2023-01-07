@@ -1,16 +1,17 @@
 import { registerSocket, safetyToolsSocket } from "./socket";
-import { MODULE_NAME, SafetyCardEvent, setApi } from "../index";
+import { SafetyCardEvent, setApi } from "../index";
 import { SafetyCard } from "./SafetyCard";
 import { SafetyToolsLayer } from "./SafetyToolsLayer";
 import API from "./api";
 import { SafetyCardName } from "./SafetyCardName";
 import { registerSettings } from "./settings";
+import CONSTANTS from "./constants";
 
 export class SafetyTools {
 	private cards: SafetyCard[];
 
 	public readonly onInit = (): void => {
-        registerSettings();
+		registerSettings();
 
 		Hooks.once("socketlib.ready", registerSocket);
 		// TODO not enter on socketlib.ready
@@ -21,23 +22,8 @@ export class SafetyTools {
 		console.log("Safety Tools | Registering layer v2");
 
 		setApi(API);
-		//   if (!(game instanceof Game)) {
-		//     throw new Error('Attempt to use game global before init.');
-		//   }
-		// needed for lambda when setting up cards
-		// const theGame = game;
-		// if (theGame.data.version?.startsWith('0.8')) {
-		//   console.log('Safety Tools | Register as version 0.8 layer');
-		//   (CONFIG.Canvas as any).layers[MODULE_NAME] = SafetyToolsLayer;
-		// } else {
-		//   console.log('Safety Tools | Register as version 9 layer');
-		//   (CONFIG.Canvas as any).layers[MODULE_NAME] = {
-		//     "group": "interface",
-		//     "layerClass": SafetyToolsLayer,
-		//   }
-		// }
 
-		(CONFIG.Canvas as any).layers[MODULE_NAME] = {
+		(CONFIG.Canvas as any).layers[CONSTANTS.MODULE_NAME] = {
 			group: "interface",
 			layerClass: SafetyToolsLayer,
 		};
@@ -65,13 +51,13 @@ export class SafetyTools {
 		}
 
 		const safetyToolController = {
-			name: MODULE_NAME,
-			title: "SAFETY_TOOLS.Control.Title",
+			name: CONSTANTS.MODULE_NAME,
+			title: `${CONSTANTS.MODULE_NAME}.Control.Title`,
 			activeTool: "",
 			visible: true,
 			tools: this.cards,
 			icon: "fas fa-hard-hat",
-			layer: MODULE_NAME,
+			layer: CONSTANTS.MODULE_NAME,
 		};
 		buttons.push(safetyToolController);
 	};
