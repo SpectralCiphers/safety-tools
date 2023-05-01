@@ -87,6 +87,18 @@ export const registerSettings = function (): void {
 				ui?.controls?.render(true);
 			},
 		});
+		const settingSoundName = `${cardName}CardSound`;
+		game.settings.register(CONSTANTS.MODULE_NAME, settingSoundName, {
+			name: `${CONSTANTS.MODULE_NAME}.Settings.${settingName}.Sound.Name`,
+			hint: `${CONSTANTS.MODULE_NAME}.Settings.${settingName}.Sound.Hint`,
+			scope: "world",
+			config: true,
+			type: String,
+			// This should be constrained to audio in the filepicker, but this is
+			// absent from the SettingConfig type apparently?
+			// filePicker: "audio",
+			default: `modules/${CONSTANTS.MODULE_NAME}/defaultSounds/alert.wav`
+		});
 	});
 
 	// ========================================================================
