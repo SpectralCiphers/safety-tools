@@ -273,7 +273,7 @@ const bundleModule = async () => {
 }
 
 const copyFiles = async() => {
-    const statics = [`lang`, `languages`, `fonts`, `assets`, `icons`, `templates`, `packs`, `module.json`, `system.json`, `template.json`];
+    const statics = [`lang`, `languages`, `fonts`, `assets`, `icons`, `templates`, `packs`, `module.json`, `system.json`, `template.json`, `defaultSounds`];
 
     const recursiveFileSearch = (dir, callback) => {
         const err = callback.err;
@@ -393,7 +393,7 @@ const buildWatch = () => {
     gulp.watch(`src/**/*.ts`, { ignoreInitial: false }, gulp.series(buildTS));
     gulp.watch(`src/**/*.less`, { ignoreInitial: false }, buildLess);
     gulp.watch(`src/**/*.sass`, { ignoreInitial: false }, buildSASS);
-    gulp.watch([`src/fonts`, `src/lang`, `src/languages`, `src/templates`, `src/*.json`], { ignoreInitial: false }, copyFiles);
+    gulp.watch([`src/fonts`, `src/lang`, `src/languages`, `src/templates`, `src/defaultSounds`, `src/*.json`], { ignoreInitial: false }, copyFiles);
 }
 
 /********************/
@@ -423,6 +423,7 @@ const clean = async () => {
             `templates`,
             `assets`,
             `module`,
+            `defaultSounds`,
             `index.js`,
             `module.json`,
             `system.json`,

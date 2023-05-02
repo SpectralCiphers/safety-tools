@@ -20,6 +20,10 @@
 			"ko-fi": "",
 			"reddit": "",
 			"email": ""
+		},
+		{
+			"name": "Kit",
+			"discord": "wlonk#6479"
 		}
 	],
 	"type": "module",
