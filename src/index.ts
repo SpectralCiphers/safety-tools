@@ -14,38 +14,38 @@ export interface SafetyCardEvent {
 export enum SafetyCardViewOptions {
 	Disabled = "Disabled",
 	ShowAsIcon = "ShowAsIcon",
-	ShowAsText = "ShowAsText",
+	ShowAsText = "ShowAsText"
 }
 
 export const CARD_ICON_CLASSES: Record<SafetyCardName, { ShowAsIcon: string; ShowAsText: string }> = {
 	[SafetyCardName.X]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-hand-paper",
-		[SafetyCardViewOptions.ShowAsText]: "x-card",
+		[SafetyCardViewOptions.ShowAsText]: "x-card"
 	},
 	[SafetyCardName.O]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-thumbs-up",
-		[SafetyCardViewOptions.ShowAsText]: "o-card",
+		[SafetyCardViewOptions.ShowAsText]: "o-card"
 	},
 	[SafetyCardName.N]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-exclamation-triangle",
-		[SafetyCardViewOptions.ShowAsText]: "n-card",
+		[SafetyCardViewOptions.ShowAsText]: "n-card"
 	},
 	[SafetyCardName.Pause]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-pause",
-		[SafetyCardViewOptions.ShowAsText]: "pause-card",
+		[SafetyCardViewOptions.ShowAsText]: "pause-card"
 	},
 	[SafetyCardName.Resume]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-play",
-		[SafetyCardViewOptions.ShowAsText]: "resume-card",
+		[SafetyCardViewOptions.ShowAsText]: "resume-card"
 	},
 	[SafetyCardName.FastForward]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-forward",
-		[SafetyCardViewOptions.ShowAsText]: "fast-forward-card",
+		[SafetyCardViewOptions.ShowAsText]: "fast-forward-card"
 	},
 	[SafetyCardName.Rewind]: {
 		[SafetyCardViewOptions.ShowAsIcon]: "fas fa-backward",
-		[SafetyCardViewOptions.ShowAsText]: "rewind-card",
-	},
+		[SafetyCardViewOptions.ShowAsText]: "rewind-card"
+	}
 };
 
 const safetyTools = new SafetyTools();

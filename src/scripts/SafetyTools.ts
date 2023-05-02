@@ -25,7 +25,7 @@ export class SafetyTools {
 
 		(CONFIG.Canvas as any).layers[CONSTANTS.MODULE_NAME] = {
 			group: "interface",
-			layerClass: SafetyToolsLayer,
+			layerClass: SafetyToolsLayer
 		};
 
 		// console.log("Safety Tools | Registering event listener");
@@ -57,7 +57,7 @@ export class SafetyTools {
 			visible: true,
 			tools: this.cards,
 			icon: "fas fa-hard-hat",
-			layer: CONSTANTS.MODULE_NAME,
+			layer: CONSTANTS.MODULE_NAME
 		};
 		buttons.push(safetyToolController);
 	};

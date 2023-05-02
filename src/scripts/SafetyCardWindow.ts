@@ -10,7 +10,7 @@ export class SafetyCardWindow extends Application {
 			template: `modules/${CONSTANTS.MODULE_NAME}/templates/card.hbs`,
 			title,
 			height: 647,
-			width: 400,
+			width: 400
 		});
 		this.description = description;
 	}
@@ -18,7 +18,7 @@ export class SafetyCardWindow extends Application {
 	readonly getData = () => {
 		return {
 			description: this.description,
-			icon: this.icon,
+			icon: this.icon
 		};
 	};
 }

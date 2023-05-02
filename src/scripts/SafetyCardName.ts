@@ -5,5 +5,5 @@ export enum SafetyCardName {
 	Pause = "Pause",
 	Resume = "Resume",
 	FastForward = "FastForward",
-	Rewind = "Rewind",
+	Rewind = "Rewind"
 }

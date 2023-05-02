@@ -1,4 +1,3 @@
-
 import API from "./api";
 import type { SafetyCard } from "./SafetyCard";
 import { SafetyCardName } from "./SafetyCardName";
@@ -47,7 +46,7 @@ export const registerSettings = function (): void {
 		hint: `${CONSTANTS.MODULE_NAME}.setting.reset.hint`,
 		icon: "fas fa-coins",
 		type: ResetSettingsDialog,
-		restricted: true,
+		restricted: true
 	});
 
 	// =====================================================================
@@ -63,7 +62,7 @@ export const registerSettings = function (): void {
 			this.cards.forEach((card: SafetyCard) => {
 				card.setGmOnly(newValue.valueOf());
 			});
-		},
+		}
 	});
 
 	Object.values(SafetyCardName).map((cardName) => {
@@ -78,14 +77,14 @@ export const registerSettings = function (): void {
 			choices: {
 				[SafetyCardViewOptions.Disabled]: `${CONSTANTS.MODULE_NAME}.SettingsValue.Disabled`,
 				[SafetyCardViewOptions.ShowAsText]: `${CONSTANTS.MODULE_NAME}.SettingsValue.ShowAsText`,
-				[SafetyCardViewOptions.ShowAsIcon]: `${CONSTANTS.MODULE_NAME}.SettingsValue.ShowAsIcon`,
+				[SafetyCardViewOptions.ShowAsIcon]: `${CONSTANTS.MODULE_NAME}.SettingsValue.ShowAsIcon`
 			},
 			default: SafetyCardViewOptions.ShowAsIcon,
 			onChange: (newValue: SafetyCardViewOptions): void => {
 				this.viewOption = newValue;
 				this.updateIcon();
 				ui?.controls?.render(true);
-			},
+			}
 		});
 		const settingSoundName = `${cardName}CardSound`;
 		game.settings.register(CONSTANTS.MODULE_NAME, settingSoundName, {
@@ -109,7 +108,7 @@ export const registerSettings = function (): void {
 		scope: "client",
 		config: true,
 		default: false,
-		type: Boolean,
+		type: Boolean
 	});
 };
 
@@ -137,14 +136,14 @@ class ResetSettingsDialog extends FormApplication<FormApplicationOptions, object
 							await setting.delete();
 						}
 						//window.location.reload();
-					},
+					}
 				},
 				cancel: {
 					icon: '<i class="fas fa-times"></i>',
-					label: game.i18n.localize(`${CONSTANTS.MODULE_NAME}.dialogs.resetsettings.cancel`),
-				},
+					label: game.i18n.localize(`${CONSTANTS.MODULE_NAME}.dialogs.resetsettings.cancel`)
+				}
 			},
-			default: "cancel",
+			default: "cancel"
 		});
 	}
 
