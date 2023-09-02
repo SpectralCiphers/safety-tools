@@ -2,7 +2,7 @@
 	"id": "safety-tools",
 	"title": "Safety Tools",
 	"description": "Safety Tools for Foundry VTT",
-	"version": "0.5.3",
+	"version": "0.6.0",
 	"authors": [
 		{
 			"name": "Max Cerrina"
