@@ -87,7 +87,7 @@ export const registerSettings = function () {
       // This should be constrained to audio in the filepicker, but this is
       // absent from the SettingConfig type apparently?
       // filePicker: "audio",
-      default: `modules/${CONSTANTS.MODULE_NAME}/defaultSounds/alert.wav`,
+      default: `modules/${CONSTANTS.MODULE_NAME}/assets/defaultSounds/alert.wav`,
     });
   });
   // ========================================================================

@@ -1,65 +1,65 @@
 .x-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: "X";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: "X";
 }
 
 .o-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: "O";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: "O";
 }
 
 .n-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: "N";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: "N";
 }
 
 .pause-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: "ǁ";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: "ǁ";
 }
 
 .resume-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: ">";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: ">";
 }
 
 .fast-forward-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: ">>";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: ">>";
 }
 
 .rewind-card::before {
-	font-family: sans-serif;
-	font-weight: bolder;
-	font-style: normal;
-	content: "<<";
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-style: normal;
+  content: "<<";
 }
 
 .safety-card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .safety-icon {
-	height: 400px;
-	font-size: 325px;
+  height: 400px;
+  font-size: 325px;
 }
 
 .safety-description.safety-description {
-	flex: 0;
-	font-size: 200%;
+  flex: 0;
+  font-size: 200%;
 }
